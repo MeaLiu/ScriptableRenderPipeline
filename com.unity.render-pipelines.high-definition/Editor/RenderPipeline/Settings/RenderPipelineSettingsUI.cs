@@ -1,8 +1,6 @@
 using UnityEditor.AnimatedValues;
 using UnityEngine.Events;
 
-// #define REALTIME_RAYTRACING_SUPPORT
-
 namespace UnityEditor.Experimental.Rendering.HDPipeline
 {
     using _ = CoreEditorUtils;
@@ -109,13 +107,13 @@ namespace UnityEditor.Experimental.Rendering.HDPipeline
             EditorGUILayout.PropertyField(d.supportDitheringCrossFade, _.GetContent("Dithering cross fade|Remove all dithering cross fade shader variant only in the player. Allow faster build."));
 
             // Only display the support ray tracing feature if the platform supports it
-            #if REALTIME_RAYTRACING_SUPPORT
+        #if REALTIME_RAYTRACING_SUPPORT
             if(UnityEngine.SystemInfo.supportsRayTracing)
             {
                 EditorGUILayout.PropertyField(d.supportRayTracing, _.GetContent("Support Realtime Raytracing."));
             }
             else
-            #endif
+        #endif
             {
                 d.supportRayTracing.boolValue = false;
             }

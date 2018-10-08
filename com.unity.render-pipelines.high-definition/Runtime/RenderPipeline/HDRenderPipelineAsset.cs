@@ -286,6 +286,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
         // This function allows us to raise or remove some preprocessing defines based on the render pipeline settings
         public void EvaluateSettings()
         {
+#if REALTIME_RAYTRACING_SUPPORT
             // Grab the current set of defines and split them
             string currentDefineList = UnityEditor.PlayerSettings.GetScriptingDefineSymbolsForGroup(UnityEditor.BuildTargetGroup.Standalone);
             defineArray.Clear();
@@ -300,6 +301,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
             {
                 UnityEditor.PlayerSettings.SetScriptingDefineSymbolsForGroup(UnityEditor.BuildTargetGroup.Standalone, string.Join(";", defineArray.ToArray()));
             }
+#endif
         }
     }
 #endif
