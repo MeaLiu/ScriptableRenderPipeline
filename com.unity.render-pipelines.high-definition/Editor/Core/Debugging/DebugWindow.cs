@@ -502,7 +502,7 @@ namespace UnityEditor.Experimental.Rendering
             public static float s_DefaultLabelWidth = 0.5f;
 
             public readonly GUIStyle sectionScrollView = "PreferencesSectionBox";
-            public readonly GUIStyle sectionElement = "PreferencesSection";
+            public readonly GUIStyle sectionElement = new GUIStyle("PreferencesSection");
             public readonly GUIStyle selected = "OL SelectedRow";
             public readonly GUIStyle sectionHeader = new GUIStyle(EditorStyles.largeLabel);
             public readonly Color skinBackgroundColor;
@@ -511,6 +511,8 @@ namespace UnityEditor.Experimental.Rendering
             {
                 sectionScrollView = new GUIStyle(sectionScrollView);
                 sectionScrollView.overflow.bottom += 1;
+
+                sectionElement.alignment = TextAnchor.MiddleLeft;
 
                 sectionHeader.fontStyle = FontStyle.Bold;
                 sectionHeader.fontSize = 18;
